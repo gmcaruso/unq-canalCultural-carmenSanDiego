@@ -23,6 +23,6 @@ class Villano extends Persona {
 		this.hobbies = hobbies
 	}
 	
- //pedo
+ 
 				
 }
