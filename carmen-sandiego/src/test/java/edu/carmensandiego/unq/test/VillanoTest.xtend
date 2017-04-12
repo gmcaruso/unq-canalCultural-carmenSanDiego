@@ -15,12 +15,9 @@ class VillanoTest {
 		var String sena = 'Usa peluquin'
 		var String hobbie = 'Vende humo'
 		var List <String> senas = newArrayList
-		var List <String> hobbies = newArrayList
+		var List <String> hobbies = newArrayList		
 		
-		
-		
-		//pedo
-		
+	
 		var Villano elVillano = new Villano
 		
 		elVillano.setNombre(nombreQueTiene)
@@ -28,10 +25,9 @@ class VillanoTest {
 		elVillano.senasParticulares.add(sena)
 		elVillano.hobbies.add(hobbie)
 		
-		
 		elVillano.editar('Juan Palomino','Femenino',senas,hobbies)
 		
-		assertEquals(elVillano.getNombre ,'Juan Palamino')
+		assertEquals(elVillano.getNombre ,'Juan Palomino')
 		assertEquals(elVillano.getSexo ,'Femenino')
 		assertEquals(elVillano.getSenasParticulares , senas)
 		assertEquals(elVillano.getHobbies , hobbies)
