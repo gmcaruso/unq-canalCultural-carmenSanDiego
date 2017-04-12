@@ -8,8 +8,9 @@ class Villano extends Persona {
 	
 	String nombre
     String sexo
-    List <String> senasParticulares = newArrayList
-    List <String> hobbies = newArrayList
+    List<String> senasParticulares = newArrayList
+    List<String> hobbies = newArrayList
+    List<Lugar> lugaresDeInteresPorLosCriminales = newArrayList
 	
 	override responder() {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")

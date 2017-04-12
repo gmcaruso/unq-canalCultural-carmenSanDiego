@@ -7,14 +7,18 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class Pais {
 	String nombre
     List<String> caracteristicas  = newArrayList
-    List<String> lugaresDeInteresPorLosCriminales = newArrayList
     List<Pais> conexionesAereas = newArrayList
 	List<Lugar> lugares = newArrayList
 	
-	def editar(String string, String string2, java.util.List<String> strings, java.util.List<String> strings2, java.util.List<String> strings3) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	def editar(String nombre, List<String> caracteristicas, List<Lugar> lugares, List<Pais> conexiones) {
+		this.nombre = nombre
+		this.caracteristicas = caracteristicas
+		this.conexionesAereas = conexiones
+		this.lugares = lugares
 	}
 	
+
+
 
 	
 }
