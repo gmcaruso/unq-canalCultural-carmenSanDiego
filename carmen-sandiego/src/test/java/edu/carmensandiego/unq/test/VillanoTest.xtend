@@ -13,7 +13,7 @@ class VillanoTest {
 		var String nombreQueTiene = "Caruso Lombardi"
 		var String sexoQueTiene = 'Masculino'
 		var String sena = 'Usa peluquin'
-		var String hobbie = 'Vende humo'
+		var String hobbie = 'Somelier de caracoles'
 		var List <String> senas = newArrayList
 		var List <String> hobbies = newArrayList		
 		
