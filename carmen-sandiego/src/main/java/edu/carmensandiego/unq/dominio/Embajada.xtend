@@ -2,8 +2,12 @@ package edu.carmensandiego.unq.dominio
 
 class Embajada extends Lugar {
 	
-	override darPista() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	new(Persona laPersona) {
+		super("Embajada", laPersona)
+	}
+	
+	new() {
+		super("Embajada", null)
 	}
 	
 }

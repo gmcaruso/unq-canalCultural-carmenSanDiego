@@ -1,11 +1,23 @@
 package edu.carmensandiego.unq.dominio
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 class Informante extends Persona {
 	
-	Villano pistasSobreElVillano
+	String miPista;
 	
-	override responder() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	new(String nuevaPista){
+		miPista = nuevaPista;
+	}
+	
+	new() {
+		super()
+	}
+	
+	override darPista() {
+
+		miPista
 	}
 	
 }

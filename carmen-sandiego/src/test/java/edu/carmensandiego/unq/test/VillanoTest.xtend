@@ -3,34 +3,38 @@ package edu.carmensandiego.unq.test
 import org.junit.Test
 import static org.junit.Assert.*
 import edu.carmensandiego.unq.dominio.Villano
-import java.util.List
+import org.junit.Before
+
 
 class VillanoTest {	
 	
-    @Test
-	def void testVillanoCreado(){
-		
-		var String nombreQueTiene = "Caruso Lombardi"
-		var String sexoQueTiene = 'Masculino'
-		var String sena = 'Usa peluquin'
-		var String hobbie = 'Somelier de caracoles'
-		var List <String> senas = newArrayList
-		var List <String> hobbies = newArrayList		
-		
-	
-		var Villano elVillano = new Villano
-		
-		elVillano.setNombre(nombreQueTiene)
-		elVillano.setSexo(sexoQueTiene)
-		elVillano.senasParticulares.add(sena)
-		elVillano.hobbies.add(hobbie)
-		
-		elVillano.editar('Juan Palomino','Femenino',senas,hobbies)
-		
-		assertEquals(elVillano.getNombre ,'Juan Palomino')
-		assertEquals(elVillano.getSexo ,'Femenino')
-		assertEquals(elVillano.getSenasParticulares , senas)
-		assertEquals(elVillano.getHobbies , hobbies)
-		
-    }	
+ 	Villano villano
+
+	@Before def void setup() {
+		villano = new Villano
+	}
+
+	@Test def void testAgregarUnaNuevaSeniaCorrectamente() {
+		assertTrue(villano.senasParticulares.empty)
+
+		villano.agregarNuevaSenia("Esta es una nueva senia")
+		assertTrue("Se espera que el villano tenga la nueva seÃ±a: ", villano.senasParticulares.contains("Esta es una nueva senia"))
+	}
+
+
+	@Test def void testEliminarUnaNuevaSenia() {
+		assertTrue(villano.senasParticulares.empty)
+
+		villano.senasParticulares.add("Senia nueva")
+
+		villano.eliminarSenia("Senia nueva")
+		assertTrue("Se espera que el villano ya no tenga la seÃ±a eliminada: ", !villano.senasParticulares.contains("Senia nueva"))
+	}
+
+	@Test def void testAgregarUnNuevoHobbieCorrectamente() {
+		assertTrue(villano.hobbies.empty)
+
+		villano.agregarNuevoHobbie("Esta es un nuevo hobbie")
+		assertTrue("Se espera que el villano tenga un nuevo hobbie: ", villano.hobbies.contains("Esta es un nuevo hobbie"))
+	}
 }

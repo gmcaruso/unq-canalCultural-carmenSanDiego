@@ -1,15 +1,12 @@
 package edu.carmensandiego.unq.dominio
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
 abstract class Persona {
 	
-	private Lugar ubicacion
-	def String responder()
+@Accessors	
+    String pista;
 	
-	def Lugar getUbicacion(){
-		this.ubicacion
-	}
+	def abstract String darPista();
 	
-	def setUbicacion(Lugar ubicacion){
-		this.ubicacion = ubicacion
-	}
 }
