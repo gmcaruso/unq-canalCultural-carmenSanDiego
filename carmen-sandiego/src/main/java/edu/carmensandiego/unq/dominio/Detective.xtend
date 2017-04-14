@@ -10,4 +10,5 @@ class Detective {
 	Lugar lugarQueVoyAVisitar;
 	Pais pasiAlQueQuieroViajar;
 	
+	new(){}
 }

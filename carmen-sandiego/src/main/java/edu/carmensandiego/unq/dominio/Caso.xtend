@@ -12,4 +12,6 @@ class Caso {
 	Villano elResponsable;
 	List<String> paisesVisitados;
 	
+	new(){}
+	
 }

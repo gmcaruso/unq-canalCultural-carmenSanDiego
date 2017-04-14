@@ -12,4 +12,5 @@ class Juego {
 	MapaMundi mapamundiDelJuego
 	Detective detectiveACargo
 	
+new(){}	
 }
