@@ -9,7 +9,10 @@ class Expediente {
 	
 	List<Villano> villanos;
 	
-	new(){}
+	new() {
+		villanos = newArrayList()
+		fabricarVillanos()
+	}
 	
 	def agregarVillano(Villano villanoAAgregar) {
 		if(villanoExiste(villanoAAgregar.nombre)) throw new UnsupportedOperationException("El villano que intenta ingresar ya existe.")
@@ -24,8 +27,9 @@ class Expediente {
 		villanos.add(villanoAAgregar)
 		ObservableUtils.firePropertyChanged(this, "villanos", this.villanos);
 	}
-	def quitarVillano(Villano v){
-				villanos.remove(v)
+	
+	def quitarVillano(Villano unVillano){
+				villanos.remove(unVillano)
 	}
 
 	def villanoExiste(String nombre) {
@@ -40,5 +44,30 @@ class Expediente {
 		}
 		villanoBuscado
 	}
+	
+		def fabricarVillanos(){
+		var villano1 = new Villano
+		var villano2 = new Villano
+		
+		villano1.agregarNuevaSenia("Gordo")
+		villano1.agregarNuevaSenia("Alto")
+		villano1.agregarNuevoHobbie("Tenis")
+		villano1.agregarNuevoHobbie("Don Satur")
+		villano1.cambiarNombreDelVillano("Juan P. Guanpirola")
+		villano1.sexo = 'Masculino'
+		
+		villano2.agregarNuevaSenia("Flaco")
+		villano2.agregarNuevaSenia("Petiso")
+		villano2.agregarNuevoHobbie("Fichines")
+		villano2.agregarNuevoHobbie("Toddy")
+		villano2.cambiarNombreDelVillano("Sofia Sangarlanga")
+		villano2.sexo = 'Femenino'
+		
+	
+		
+		agregarVillano(villano1)
+		agregarVillano(villano2)
+	}
+
 	
 }

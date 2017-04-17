@@ -11,14 +11,14 @@ class VillanoTest {
  	Villano villano
 
 	@Before def void setup() {
-		villano = new Villano
+		villano = new Villano('Cacho Muchacho')
 	}
 
 	@Test def void testAgregarUnaNuevaSeniaCorrectamente() {
 		assertTrue(villano.senasParticulares.empty)
 
 		villano.agregarNuevaSenia("Esta es una nueva senia")
-		assertTrue("Se espera que el villano tenga la nueva seÃ±a: ", villano.senasParticulares.contains("Esta es una nueva senia"))
+		assertTrue("Se espera que el villano tenga la nueva sena: ", villano.senasParticulares.contains("Esta es una nueva senia"))
 	}
 
 

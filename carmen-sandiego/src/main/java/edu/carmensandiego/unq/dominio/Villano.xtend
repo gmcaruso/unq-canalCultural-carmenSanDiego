@@ -13,6 +13,17 @@ class Villano extends Persona {
     String sexo
     List<String> senasParticulares = newArrayList
     List<String> hobbies = newArrayList
+    
+    new(String nombre) {
+		this.nombre = nombre
+		this.senasParticulares = newArrayList
+		this.hobbies = newArrayList
+	}
+	
+	new() {
+		this.senasParticulares = newArrayList
+		this.hobbies = newArrayList
+		}
 	
 	override darPista() {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
