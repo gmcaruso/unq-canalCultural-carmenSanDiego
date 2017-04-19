@@ -61,6 +61,10 @@ class Villano extends Persona {
 
 	}
 	
+	def hola() {
+		"hola"
+	}
+	
 	
 	//def editar(String nombre, String sexo, java.util.List<String> senasParticulares, java.util.List<String> hobbies) {
 	//	this.nombre = nombre
