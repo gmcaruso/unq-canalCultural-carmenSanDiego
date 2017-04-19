@@ -1,21 +1,17 @@
 package carmen.sandiego.view
 
+import edu.carmensandiego.unq.dominio.Villano
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.widgets.tables.Table
-import org.uqbar.arena.widgets.tables.Column
-import edu.carmensandiego.unq.dominio.Villano
 
-/**
- * 
- */
 class CrearVillanoWindow extends SimpleWindow<Villano> {
 	
 	new(WindowOwner owner, Villano villano) {
@@ -25,7 +21,14 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 
 	override createFormPanel(Panel mainPanel) {
 		val editorPanel = new Panel(mainPanel)
+		val listaSenia = new Panel(mainPanel)
+		val hobbies = new Panel(mainPanel)
+		val listaHobbies = new Panel(mainPanel)
+		
 		editorPanel.layout = new ColumnLayout(2)
+		listaSenia.layout = new ColumnLayout(1)
+		hobbies.layout = new ColumnLayout(2)
+		listaHobbies.layout = new ColumnLayout(1)
 		
 		new Label(editorPanel).text = "Nombre: "
 		
@@ -43,33 +46,22 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 			onClick [ | jugar ]
 		]
 		
-		val gridSenias = new Table(editorPanel, typeof(Villano)) => [
-			width = 600
-			height = 400
-		]
-		
-		new Column<Villano>(gridSenias) => [
+		new List(listaSenia) => [
 			title = "Seña"
-			bindContentsToProperty("sexo")
+			width = 220
+			value <=> "senasParticulares"
 		]
 		
-		new Label(editorPanel).text = "Hobbies: " new Button(editorPanel) => [
+		new Label(hobbies).text = "Hobbies: " new Button(hobbies) => [
 			caption = "Editar Hobbies"
 			setAsDefault
 			onClick [ | jugar ]
 		]
-		
-		val gridHobbies = new Table(editorPanel, typeof(String)) => [
-			width = 600
-			height = 400
-			items <=> ""
+		new List(listaHobbies) => [
+			title = "Seña"
+			width = 220
+			value <=> "hobbies"
 		]
-		
-		new Column<String>(gridHobbies) => [
-			title = "Hobbie"
-			bindContentsToProperty("sexo")
-		]
-
 	}
 
 	override addActions(Panel actionsPanel) {
@@ -78,7 +70,6 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 			setAsDefault
 			onClick [ | jugar ]
 		]
-
 	}
 
 	def jugar() {
