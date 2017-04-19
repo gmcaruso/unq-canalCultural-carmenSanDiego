@@ -27,7 +27,7 @@ class Pais {
 	}
 	
 	
-		def crearConexionCon(Pais conexionAAgregar) {
+	def crearConexionCon(Pais conexionAAgregar) {
 		if(this.conexionesAereas.contains(conexionAAgregar.nombre) || this.nombre.equalsIgnoreCase(conexionAAgregar.nombre)) {
 			throw new UnsupportedOperationException("La conexion que intenta crear ya existe o es invalida")
 		}
@@ -65,7 +65,7 @@ class Pais {
 		ObservableUtils::firePropertyChanged(this, "lugaresDeInteres", this.lugaresDeInteres)
 	}
 
-		def agregarNuevoLugar(Lugar lugar) {
+	def agregarNuevoLugar(Lugar lugar) {
 		if(this.lugaresDeInteres.size == 3) {
 			throw new UnsupportedOperationException("No se pueden cargar mas lugares a este pais. Ya alncanzo el maximo permitido")
 		}
