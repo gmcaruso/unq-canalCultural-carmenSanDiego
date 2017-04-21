@@ -62,7 +62,9 @@ class Villano extends Persona {
 	}
 	
 	def hola() {
-		"hola"
+
+		"Hola"
+		
 	}
 	
 	
