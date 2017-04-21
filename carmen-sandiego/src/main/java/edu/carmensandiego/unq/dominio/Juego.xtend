@@ -1,9 +1,11 @@
 package edu.carmensandiego.unq.dominio
 
-import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
 @Accessors
+@Observable
 class Juego {
 	
 	List<Caso> listaDeCasosSinResolver
