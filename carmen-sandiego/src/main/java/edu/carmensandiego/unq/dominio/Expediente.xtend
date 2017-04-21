@@ -23,13 +23,12 @@ class Expediente {
 	}
 
 	def actualizarVillano(Villano villanoAAgregar) {
-
 		villanos.add(villanoAAgregar)
 		ObservableUtils.firePropertyChanged(this, "villanos", this.villanos);
 	}
 	
 	def quitarVillano(Villano unVillano){
-				villanos.remove(unVillano)
+		villanos.remove(unVillano)
 	}
 
 	def villanoExiste(String nombre) {

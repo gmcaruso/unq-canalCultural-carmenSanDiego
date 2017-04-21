@@ -21,9 +21,7 @@ class Villano extends Persona {
 	}
 	
 	new() {
-		this.senasParticulares = newArrayList
-		this.hobbies = newArrayList
-		}
+	}
 	
 	override darPista() {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
