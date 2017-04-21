@@ -34,9 +34,9 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 			value <=> "sexo"
 			width = 220
 		]
-		new Label(editorPanel).text = "Señas Particulares: " new Button(editorPanel) => [
+		new Label(editorPanel).text = "Señas Particulares: " 
+		new Button(editorPanel) => [
 			caption = "Editar Señas Particulares"
-			setAsDefault
 			onClick [ | jugar ]
 		]
 		
@@ -51,7 +51,6 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 		hobbies.layout = new ColumnLayout(2)
 		new Label(hobbies).text = "Hobbies: " new Button(hobbies) => [
 			caption = "Editar Hobbies"
-			setAsDefault
 			onClick [ | jugar ]
 		]
 		
@@ -66,7 +65,6 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 	override addActions(Panel actionsPanel) {
 		new Button(actionsPanel) => [
 			caption = "Aceptar"
-			setAsDefault
 			onClick [ | jugar ]
 		]
 	}
