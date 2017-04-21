@@ -21,24 +21,18 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 
 	override createFormPanel(Panel mainPanel) {
 		val editorPanel = new Panel(mainPanel)
-		val listaSenia = new Panel(mainPanel)
-		val hobbies = new Panel(mainPanel)
-		val listaHobbies = new Panel(mainPanel)
-		
 		editorPanel.layout = new ColumnLayout(2)
-		listaSenia.layout = new ColumnLayout(1)
-		hobbies.layout = new ColumnLayout(2)
-		listaHobbies.layout = new ColumnLayout(1)
 		
 		new Label(editorPanel).text = "Nombre: "
-		
 		new TextBox(editorPanel) => [
 			value <=> "nombre"
+			width = 220
 		]
 		
 		new Label(editorPanel).text = "Sexo: "
 		new TextBox(editorPanel) => [
 			value <=> "sexo"
+			width = 220
 		]
 		new Label(editorPanel).text = "Señas Particulares: " new Button(editorPanel) => [
 			caption = "Editar Señas Particulares"
@@ -46,19 +40,24 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 			onClick [ | jugar ]
 		]
 		
+		val listaSenia = new Panel(mainPanel)
+		listaSenia.layout = new ColumnLayout(1)
 		new List(listaSenia) => [
-			title = "Seña"
 			width = 220
 			value <=> "senasParticulares"
 		]
 		
+		val hobbies = new Panel(mainPanel)
+		hobbies.layout = new ColumnLayout(2)
 		new Label(hobbies).text = "Hobbies: " new Button(hobbies) => [
 			caption = "Editar Hobbies"
 			setAsDefault
 			onClick [ | jugar ]
 		]
+		
+		val listaHobbies = new Panel(mainPanel)
+		listaHobbies.layout = new ColumnLayout(1)
 		new List(listaHobbies) => [
-			title = "Seña"
 			width = 220
 			value <=> "hobbies"
 		]
