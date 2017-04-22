@@ -15,7 +15,7 @@ import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
-class CrearExpedienteWindow extends TransactionalDialog<Expediente>  {
+class CrearExpedienteWindow extends TransactionalDialog<Expediente>  { 
 	
 	new(WindowOwner parent, Expediente model) {
 		super(parent, model)
