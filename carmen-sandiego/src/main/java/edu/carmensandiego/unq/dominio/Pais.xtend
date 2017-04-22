@@ -3,8 +3,10 @@ package edu.carmensandiego.unq.dominio
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.commons.utils.Observable
 
 @Accessors
+@Observable
 class Pais {
 	String nombre
     List<String> caracteristicas 
@@ -24,6 +26,9 @@ class Pais {
 		this.lugaresPosibles.addAll(banco, biblioteca, embajada, club)
 		this.conexionesAereas = newArrayList
 
+	}
+	
+	new() {
 	}
 	
 	

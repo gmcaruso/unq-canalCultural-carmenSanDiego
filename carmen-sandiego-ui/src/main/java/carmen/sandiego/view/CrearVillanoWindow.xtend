@@ -1,18 +1,18 @@
 package carmen.sandiego.view
 
 import edu.carmensandiego.unq.dominio.Villano
+import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
-class CrearVillanoWindow extends SimpleWindow<Villano> {
+class CrearVillanoWindow extends TransactionalDialog<Villano> {
 	
 	new(WindowOwner owner, Villano villano) {
 		super(owner, villano)
@@ -37,21 +37,19 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 		new Label(editorPanel).text = "Señas Particulares: " 
 		new Button(editorPanel) => [
 			caption = "Editar Señas Particulares"
-			onClick [ | jugar ]
 		]
 		
 		val listaSenia = new Panel(mainPanel)
 		listaSenia.layout = new ColumnLayout(1)
 		new List(listaSenia) => [
 			width = 220
-			value <=> "senasParticulares"
+			value <=> "seniasParticulares"
 		]
 		
 		val hobbies = new Panel(mainPanel)
 		hobbies.layout = new ColumnLayout(2)
 		new Label(hobbies).text = "Hobbies: " new Button(hobbies) => [
 			caption = "Editar Hobbies"
-			onClick [ | jugar ]
 		]
 		
 		val listaHobbies = new Panel(mainPanel)
@@ -65,13 +63,10 @@ class CrearVillanoWindow extends SimpleWindow<Villano> {
 	override addActions(Panel actionsPanel) {
 		new Button(actionsPanel) => [
 			caption = "Aceptar"
-			onClick [ | jugar ]
+			onClick [|this.accept]
+			setAsDefault
+			disableOnError	
 		]
 	}
 
-	def jugar() {
-		showInfo(modelObject.hola.toString)
-	}
-
 }
-

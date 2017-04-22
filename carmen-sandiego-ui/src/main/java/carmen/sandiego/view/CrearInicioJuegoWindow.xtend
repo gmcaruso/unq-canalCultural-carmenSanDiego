@@ -8,6 +8,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import edu.carmensandiego.unq.dominio.Expediente
 
 class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
 	
@@ -58,7 +59,7 @@ class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
 	}
 	
 	def void irAExpedientes() {
-//		this.openDialog(new CrearExpedientesWindow(this))
+		this.openDialog(new CrearExpedienteWindow(this, new Expediente))
 	}
 	
 	def openDialog(Dialog<?> dialog) {

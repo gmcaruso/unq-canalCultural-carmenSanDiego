@@ -11,41 +11,41 @@ class Villano extends Persona {
 	
 	String nombre
     String sexo
-    List<String> senasParticulares = newArrayList
+    List<String> seniasParticulares = newArrayList
     List<String> hobbies = newArrayList
     
-    new(String nombre) {
+    new(String nombre, String sexo, List<String> senias, List<String> hobbies) {
 		this.nombre = nombre
-		this.senasParticulares = newArrayList
-		this.hobbies = newArrayList
+		this.sexo = sexo
+		this.seniasParticulares = senias
+		this.hobbies = hobbies
 	}
 	
 	new() {
 	}
 	
 	override darPista() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-		def cambiarNombreDelVillano(String nuevoNombre) {
+	def cambiarNombreDelVillano(String nuevoNombre) {
 		nombre = nuevoNombre
 		ObservableUtils.firePropertyChanged(this, "nombre", this.nombre);
 	}
 	
-		def agregarNuevaSenia(String seniaAAgregar) {
-		if(senasParticulares.contains(seniaAAgregar)) {
+	def agregarNuevaSenia(String seniaAAgregar) {
+		if(seniasParticulares.contains(seniaAAgregar)) {
 			throw new UnsupportedOperationException("La senia que intenta agregar ya existe")
 		}
-		senasParticulares.add(seniaAAgregar)
-		ObservableUtils.firePropertyChanged(this, "seniasParticulares", this.senasParticulares);
+		seniasParticulares.add(seniaAAgregar)
+		ObservableUtils.firePropertyChanged(this, "seniasParticulares", this.seniasParticulares);
 	}
 	
-		def eliminarSenia(String seniaAEliminar) {
-		senasParticulares.remove(seniaAEliminar)
-		ObservableUtils.firePropertyChanged(this, "seniasParticulares", this.senasParticulares);
+	def eliminarSenia(String seniaAEliminar) {
+		seniasParticulares.remove(seniaAEliminar)
+		ObservableUtils.firePropertyChanged(this, "seniasParticulares", this.seniasParticulares);
 	}
 	
-		def agregarNuevoHobbie(String hobbieNuevo) {
+	def agregarNuevoHobbie(String hobbieNuevo) {
 		if(hobbies.contains(hobbieNuevo)) {
 			throw new UnsupportedOperationException("El Hobbit que intenta agregar ya existe")
 		}
@@ -56,21 +56,6 @@ class Villano extends Persona {
 	def eliminarHobbie(String hobbieARemover) {
 		hobbies.remove(hobbieARemover)
 		ObservableUtils.firePropertyChanged(this, "hobbies", this.hobbies);
-
 	}
 	
-	def hola() {
-		"Hola"
-	}
-	
-	
-	//def editar(String nombre, String sexo, java.util.List<String> senasParticulares, java.util.List<String> hobbies) {
-	//	this.nombre = nombre
-	//	this.sexo = sexo
-	//	this.senasParticulares = senasParticulares
-	//	this.hobbies = hobbies
-	//}
-	
- 
-				
 }
