@@ -11,7 +11,7 @@ class VillanoTest {
  	Villano villano
 
 	@Before def void setup() {
-		villano = new Villano('Cacho Muchacho')
+		villano = new Villano()
 	}
 
 	@Test def void testAgregarUnaNuevaSeniaCorrectamente() {

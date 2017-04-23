@@ -34,9 +34,8 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(editorPanel).text = "Caracteriscticas: " 
 		
 		new Button(editorPanel) => [
-			caption = "Editar Caracteristicas"
-			
-			onClick [ | jugar ]
+			caption = "Editar Caracteristicas"			
+			onClick [ | this.irAEditarCaracteristicas]
 		]
  		
  		val listaCaracteristicasPanel= new Panel(mainPanel)
@@ -51,7 +50,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(listaConexionesAeresPanel).text = "Conexiones Aereas"
 		new Button(listaConexionesAeresPanel) => [
 			caption = "Editar Conexiones Aereas: "
-			onClick[ | this.irAEditarCaracteristicas]
+			onClick[| jugar ]
 		]
 		
 		val listaConexionesAereas = new Panel(mainPanel)
