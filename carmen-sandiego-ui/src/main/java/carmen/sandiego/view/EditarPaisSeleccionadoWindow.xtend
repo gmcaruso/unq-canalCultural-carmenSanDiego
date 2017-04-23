@@ -1,16 +1,19 @@
 package carmen.sandiego.view
 
+import edu.carmensandiego.unq.dominio.Lugar
+import edu.carmensandiego.unq.dominio.Pais
+import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.widgets.TextBox
+
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.List
-import org.uqbar.arena.layout.HorizontalLayout
-import edu.carmensandiego.unq.dominio.Pais
 
 class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 	
@@ -31,35 +34,31 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(editorPanel).text = "Caracteriscticas: " 
 		
 		new Button(editorPanel) => [
-		caption = "Editar Caracteristicas"
-		
-		onClick [ | jugar ]
-		
-			]
- 		
+			caption = "Editar Caracteristicas"
+			
+			onClick [ | jugar ]
+		]
  		
  		val listaCaracteristicasPanel= new Panel(mainPanel)
  		listaCaracteristicasPanel.layout = new ColumnLayout(1)
 		new List(listaCaracteristicasPanel) => [
 			width = 220
-			value <=> "caracteristicas"
-			]
-		
+			items <=> "caracteristicas"
+		]
 		
 		val listaConexionesAeresPanel = new Panel(mainPanel)
 		listaConexionesAeresPanel.layout = new ColumnLayout(2)
 		new Label(listaConexionesAeresPanel).text = "Conexiones Aereas"
 		new Button(listaConexionesAeresPanel) => [
-			caption = "Editar Caracteristicas: "
-			
-			onClick[ | jugar]
+			caption = "Editar Conexiones Aereas: "
+			onClick[ | this.irAEditarCaracteristicas]
 		]
 		
 		val listaConexionesAereas = new Panel(mainPanel)
 		listaConexionesAereas.layout = new ColumnLayout(1)
 		new List(listaConexionesAereas) => [
+			(items <=> "conexionesAereas").adapter = new PropertyAdapter(Pais, "nombre")
 			width = 220
-			value <=> "conexionesAereas"
 		]
 	
 		val listaLugaresInteresPanel = new Panel(mainPanel) 
@@ -75,9 +74,8 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		 listaLugaresInteres.layout = new ColumnLayout(1)
 		 new List(listaLugaresInteres) => [
 		 	width = 220
-		 	value <=> "lugaresDeInteres"
+		 	(items <=> "lugaresDeInteres").adapter = new PropertyAdapter(Lugar, "nombreLugar")
 		 ]
-		
 		
 		val aceptarPanel = new Panel(mainPanel)
 		aceptarPanel.layout = new HorizontalLayout
@@ -93,7 +91,12 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		
 	}
 	
+	def irAEditarCaracteristicas(){
+		
+	}
+	
 	def aceptarCambios() {
+		this.close
 	}
 	
 	def jugar() {

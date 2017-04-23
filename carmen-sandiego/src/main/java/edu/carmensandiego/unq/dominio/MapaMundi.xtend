@@ -17,7 +17,6 @@ class MapaMundi {
 	}
 
 	new() {
-		super()
 		listaPaises = newArrayList()
 		var india = new Pais("India")
 		india.caracteristicas.add("Tiene muchos habitantes")
@@ -37,19 +36,17 @@ class MapaMundi {
 		india.crearConexionCon(egipto)
 		egipto.crearConexionCon(india)
 		listaPaises.addAll(india, egipto)
+	}
 		
-		}
-		
-		def eliminarPais(Pais paisSeleccionado) {
+	def eliminarPais(Pais paisSeleccionado) {
 		if(!paisSeleccionado.conexionesAereas.empty) {
 			throw new UnsupportedOperationException("El pais que intena borrar tiene conexiones a otros paises. Quite estas conexiones para poder borrarlo.")
 		} 
-			this.listaPaises.remove(paisSeleccionado)
-			ObservableUtils::firePropertyChanged(this, "listaPaises", this.listaPaises)
+		this.listaPaises.remove(paisSeleccionado)
+		ObservableUtils::firePropertyChanged(this, "listaPaises", this.listaPaises)
 	}
 	
-		def agregarPaisNuevo(Pais pais) {
-
+	def agregarPaisNuevo(Pais pais) {
 		if(pais.nombre.empty) {
 			throw new UnsupportedOperationException("El pais que intenta agregar no tiene nombre")
 		}
@@ -62,9 +59,9 @@ class MapaMundi {
 		ObservableUtils::firePropertyChanged(this, "listaPaises", this.listaPaises)
 	}
 		
-		def getLugar() {
-			//Falta definir
-		}
+	def getLugar() {
+		//Falta definir
+	}
 
 	def getPais(String nombreDelPais) {
 		var Pais paisBuscado = null
@@ -79,6 +76,5 @@ class MapaMundi {
 	def paisExiste(String nombre) {
 		listaPaises.exists[unPais|nombre.equalsIgnoreCase(unPais.nombre)]
 	}
-	
 	
 }

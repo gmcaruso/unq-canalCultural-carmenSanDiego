@@ -9,6 +9,7 @@ import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import edu.carmensandiego.unq.dominio.Expediente
+import appModel.MapaMundiAppModel
 
 class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
 	
@@ -54,7 +55,7 @@ class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
 	}
 	
 	def void irAMapamundi() {
-//		this.openDialog(new CrearMapaMundiWindow(this))
+		this.openDialog(new MapaMundiWindow(this, new MapaMundiAppModel))
 	}
 	
 	def void irAExpedientes() {

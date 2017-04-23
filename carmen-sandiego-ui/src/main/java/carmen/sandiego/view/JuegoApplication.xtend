@@ -11,6 +11,7 @@ class JuegoApplication extends Application {
 //		new CrearVillanoWindow(this, new Villano)
 		new MapaMundiWindow(this, new MapaMundiAppModel)
 //		new CrearExpedienteWindow(this, new Expediente)
+		new CrearInicioJuegoWindow(this, new Juego)
 	}
 	
 	def static main(String[] args) {

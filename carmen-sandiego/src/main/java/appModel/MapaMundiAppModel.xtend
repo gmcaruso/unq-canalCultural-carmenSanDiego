@@ -13,7 +13,6 @@ class MapaMundiAppModel {
 	MapaMundi mapaMundi = new MapaMundi
 	Pais paisSeleccionado 
 	
-	
 	def getCaracteristicas(){
 		Arrays.asList(paisSeleccionado.caracteristicas)
 	}
@@ -33,6 +32,5 @@ class MapaMundiAppModel {
 	def agregarPais(){
 		val Pais = new Pais
 		mapaMundi.agregarPaisNuevo(Pais)
-		
 	}
 }	

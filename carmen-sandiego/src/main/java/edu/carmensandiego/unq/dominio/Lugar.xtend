@@ -8,7 +8,7 @@ abstract class Lugar {
 	String nombreLugar
 	Persona persona
 	
-		new(String nombreL, Persona laPersona) {
+	new(String nombreL, Persona laPersona) {
 		this.nombreLugar = nombreL
 		this.persona = persona
 	}
@@ -16,7 +16,6 @@ abstract class Lugar {
 	def String darPista(){
 		this.persona.darPista
 	}
-	
 	
 	override equals(Object objeto) {
 		var resultado = false

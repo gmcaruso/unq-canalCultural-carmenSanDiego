@@ -1,24 +1,22 @@
 package carmen.sandiego.view
 
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.windows.WindowOwner
 import appModel.MapaMundiAppModel
+import edu.carmensandiego.unq.dominio.Pais
+import org.uqbar.arena.aop.windows.TransactionalDialog
+import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
-
-import edu.carmensandiego.unq.dominio.Pais
-import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.widgets.Button
 
-class MapaMundiWindow extends SimpleWindow<MapaMundiAppModel> {
+class MapaMundiWindow extends TransactionalDialog<MapaMundiAppModel> {
 	
 	new(WindowOwner parent, MapaMundiAppModel model) {
 		super(parent, model)
 	}
-	
 	
 	override createMainTemplate(Panel mainPanel) {
 		this.title = "Paises"
@@ -27,9 +25,7 @@ class MapaMundiWindow extends SimpleWindow<MapaMundiAppModel> {
 		
 		this.crearListaDePaises(mainPanel)
 		//this.crearEdicionDePaisSeleccionado(mainPanel)
-
 	}
-	
 	
 	def crearListaDePaises(Panel owner) {
 		
@@ -45,23 +41,18 @@ class MapaMundiWindow extends SimpleWindow<MapaMundiAppModel> {
 		
 		new Button(owner) =>[
 			caption = "Editar"
-		//	onClick [ | new EditarPaisSelecionadoWindow(this, this.modelObject.paisSeleccionado).open ]
+			onClick [ | new EditarPaisSeleccionadoWindow(this, this.modelObject.paisSeleccionado).open ]
 		]
 		
 		new Button(owner) =>[
 			caption = "Nuevo"
-			onClick [ | new CrearPaisWindow(this, this.modelObject.paisSeleccionado).open ]
+			onClick [ | new CrearPaisWindow(this, new Pais).open ]
 		]			
-		
 	}
 	
 	def crearEdicionDePaisSeleccionado(Panel owner) {
 		new Label(owner).value <=> "paisSeleccionado.nombre"
 	}
-		
-	
-	
-	
 	
 	override protected addActions(Panel actionsPanel) {
 		//no queremos usar este template default
@@ -70,9 +61,5 @@ class MapaMundiWindow extends SimpleWindow<MapaMundiAppModel> {
 	override protected createFormPanel(Panel mainPanel) {
 		//no queremos usar este template default
 	}
-	
-
-	
-	
 	
 }
