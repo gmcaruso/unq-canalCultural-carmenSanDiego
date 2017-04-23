@@ -34,7 +34,7 @@ class CrearPaisWindow extends SimpleWindow<Pais> {
 		new Button(editorPanel) => [
 		caption = "Editar Caracteristicas"
 		
-		onClick [ | jugar ]
+		onClick [|this.close]
 		
 			]
  		
@@ -84,7 +84,7 @@ class CrearPaisWindow extends SimpleWindow<Pais> {
 		aceptarPanel.layout = new HorizontalLayout
 		new Button(aceptarPanel) =>[
 			caption = "Aceptar"
-			onClick[| aceptarCambios]
+			onClick [|this.close]
 		]
 		
 		
