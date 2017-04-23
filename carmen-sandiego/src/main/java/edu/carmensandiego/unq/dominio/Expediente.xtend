@@ -1,28 +1,31 @@
 package edu.carmensandiego.unq.dominio
 
-import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.commons.utils.Observable
 
 @Accessors
+@Observable
 class Expediente {
 	
-	List<Villano> villanos;
+	List<Villano> villanos = newArrayList;
+	Villano villanoSeleccionado
 	
 	new() {
-		villanos = newArrayList()
-		fabricarVillanos()
+		fabricarVillanos
 	}
 	
 	def agregarVillano(Villano villanoAAgregar) {
-		if(villanoExiste(villanoAAgregar.nombre)) throw new UnsupportedOperationException("El villano que intenta ingresar ya existe.")
-		else{
+//		if(villanoExiste(villanoAAgregar.nombre)) throw new UnsupportedOperationException("El villano que intenta ingresar ya existe.")
+//		else{
 			villanos.add(villanoAAgregar)	
-		}
-		ObservableUtils.firePropertyChanged(this, "villanos", this.villanos);
+//		}
+//		ObservableUtils.firePropertyChanged(this, "villanos", this.villanos);
 	}
 
 	def actualizarVillano(Villano villanoAAgregar) {
+
 		villanos.add(villanoAAgregar)
 		ObservableUtils.firePropertyChanged(this, "villanos", this.villanos);
 	}
@@ -35,38 +38,29 @@ class Expediente {
 		villanos.exists[unVillano|nombre.equalsIgnoreCase(unVillano.nombre)]
 	}
 	
-	def buscarVillanoEnLaColeccion(String nombreDelVillano) {
-		var Villano villanoBuscado = new Villano
-		villanoBuscado.nombre = "buscarVillanoEnLaColeccion no encontro a nadie"
-		for (Villano unVillano : this.villanos) {
-			if(nombreDelVillano.equalsIgnoreCase(unVillano.nombre)) villanoBuscado = unVillano
-		}
-		villanoBuscado
-	}
+//	def buscarVillanoEnLaColeccion(String nombreDelVillano) {
+//		var villanoBuscado = new Villano
+//		villanoBuscado.nombre = "buscarVillanoEnLaColeccion no encontro a nadie"
+//		for (Villano unVillano : this.villanos) {
+//			if(nombreDelVillano.equalsIgnoreCase(unVillano.nombre)) villanoBuscado = unVillano
+//		}
+//		villanoBuscado
+//	}
 	
-		def fabricarVillanos(){
-		var villano1 = new Villano
-		var villano2 = new Villano
+	def fabricarVillanos(){
+		var senias = newArrayList
+		var hobbies = newArrayList
 		
-		villano1.agregarNuevaSenia("Gordo")
-		villano1.agregarNuevaSenia("Alto")
-		villano1.agregarNuevoHobbie("Tenis")
-		villano1.agregarNuevoHobbie("Don Satur")
-		villano1.cambiarNombreDelVillano("Juan P. Guanpirola")
-		villano1.sexo = 'Masculino'
+		senias.add("Gordo")
+		senias.add("Alto")
+		hobbies.add("Tenis")
+		hobbies.add("Comer")
 		
-		villano2.agregarNuevaSenia("Flaco")
-		villano2.agregarNuevaSenia("Petiso")
-		villano2.agregarNuevoHobbie("Fichines")
-		villano2.agregarNuevoHobbie("Toddy")
-		villano2.cambiarNombreDelVillano("Sofia Sangarlanga")
-		villano2.sexo = 'Femenino'
+		var villano1 = new Villano("Pepe", "Masculino", senias, hobbies)
+		var villano2 = new Villano("Carlita", "Femenino", senias, hobbies)
 		
-	
-		
-		agregarVillano(villano1)
-		agregarVillano(villano2)
+		this.villanos.add(villano1)
+		this.villanos.add(villano2)
 	}
-
 	
 }

@@ -15,20 +15,20 @@ class VillanoTest {
 	}
 
 	@Test def void testAgregarUnaNuevaSeniaCorrectamente() {
-		assertTrue(villano.senasParticulares.empty)
+		assertTrue(villano.getSeniasParticulares.empty)
 
 		villano.agregarNuevaSenia("Esta es una nueva senia")
-		assertTrue("Se espera que el villano tenga la nueva sena: ", villano.senasParticulares.contains("Esta es una nueva senia"))
+		assertTrue("Se espera que el villano tenga la nueva sena: ", villano.getSeniasParticulares.contains("Esta es una nueva senia"))
 	}
 
 
 	@Test def void testEliminarUnaNuevaSenia() {
-		assertTrue(villano.senasParticulares.empty)
+		assertTrue(villano.getSeniasParticulares.empty)
 
-		villano.senasParticulares.add("Senia nueva")
+		villano.getSeniasParticulares.add("Senia nueva")
 
 		villano.eliminarSenia("Senia nueva")
-		assertTrue("Se espera que el villano ya no tenga la seÃ±a eliminada: ", !villano.senasParticulares.contains("Senia nueva"))
+		assertTrue("Se espera que el villano ya no tenga la seÃ±a eliminada: ", !villano.getSeniasParticulares.contains("Senia nueva"))
 	}
 
 	@Test def void testAgregarUnNuevoHobbieCorrectamente() {
