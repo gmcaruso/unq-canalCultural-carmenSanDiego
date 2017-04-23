@@ -64,10 +64,6 @@ class CrearExpedienteWindow extends TransactionalDialog<Expediente>  {
 			caption = "Editar"
 			onClick [ |  ]
 		]
-//		new Button(panelDeListadoDeMaterias) =>[
-//			caption = "Nueva Materia"
-//			onClick [ | new NuevaMateriaWindow(this, this.modelObject.carrera).open ]
-//		] 
 	}
 	
 	private def crearPanelListas(Panel columnaDerecha) {

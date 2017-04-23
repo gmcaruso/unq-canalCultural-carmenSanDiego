@@ -44,7 +44,6 @@ class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
 		]
 	}
 	
-	
 	// ********************************************************
 	// ** Acciones
 	// ********************************************************
@@ -65,5 +64,4 @@ class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
 	def openDialog(Dialog<?> dialog) {
 		dialog.open
 	}
-	
 }
