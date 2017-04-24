@@ -29,6 +29,11 @@ class ViajarWindow extends TransactionalDialog<ViajarAppModel> {
 		
 	def crearListaDePaises(Panel owner) {
 		new Label(owner).text = "Estas en: "
+		new TextBox(owner) => [
+			(value <=> "paisEnQueEstoy").adapter = new PropertyAdapter(Pais, "nombre")
+			width = 220
+		]
+		new Label(owner).text = "Psibles Destinos: "
 		new List<Pais>(owner)=>[
 		value <=> "paisSeleccionado"
 			(items <=> "recorridoPaises").adapter = new PropertyAdapter(Pais, "nombre")
