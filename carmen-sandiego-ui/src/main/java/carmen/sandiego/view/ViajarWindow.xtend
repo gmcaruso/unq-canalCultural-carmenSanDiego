@@ -1,15 +1,15 @@
 package carmen.sandiego.view
 
-import org.uqbar.arena.windows.SimpleWindow
+
 import appModel.ViajarAppModel
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.layout.ColumnLayout
+
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.windows.WindowOwner
+
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import edu.carmensandiego.unq.dominio.Pais
