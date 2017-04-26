@@ -11,9 +11,9 @@ class Juego {
 	List<Caso> casos
 	Caso casoActual
 	Expediente expediente = new Expediente
-	MapaMundi mapaMundi
+	MapaMundi mapaMundi = new MapaMundi
 	Detective detective
-	
+	Pais paisSeleccionado 
 	Villano villanoSeleccionado = expediente.villanos.get(0)
 	String elementoSeleccionado
 	String inputText
@@ -46,6 +46,15 @@ class Juego {
 	
 	def eliminarSenia() {
 		villanoSeleccionado.eliminarSenia(elementoSeleccionado)
+	}
+	
+	def eliminarPais(){
+		mapaMundi.eliminarPais(paisSeleccionado)
+	}
+	
+	def agregarPais(){
+		val Pais = new Pais
+		mapaMundi.agregarPaisNuevo(Pais)
 	}
 	
 }

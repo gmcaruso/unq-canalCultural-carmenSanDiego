@@ -1,6 +1,5 @@
 package carmen.sandiego.view
 
-import appModel.MapaMundiAppModel
 import edu.carmensandiego.unq.dominio.Pais
 import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.bindings.PropertyAdapter
@@ -11,10 +10,11 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import edu.carmensandiego.unq.dominio.Juego
 
-class MapaMundiWindow extends TransactionalDialog<MapaMundiAppModel> {
+class MapaMundiWindow extends TransactionalDialog<Juego> {
 	
-	new(WindowOwner parent, MapaMundiAppModel model) {
+	new(WindowOwner parent, Juego model) {
 		super(parent, model)
 	}
 	

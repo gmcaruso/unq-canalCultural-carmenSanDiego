@@ -1,6 +1,5 @@
 package carmen.sandiego.view
 
-import appModel.MapaMundiAppModel
 import edu.carmensandiego.unq.dominio.Juego
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
@@ -54,7 +53,7 @@ class InicioJuegoWindow extends SimpleWindow<Juego> {
 	}
 	
 	def void irAMapamundi() {
-		this.openDialog(new MapaMundiWindow(this, new MapaMundiAppModel))
+		this.openDialog(new MapaMundiWindow(this, new Juego))
 	}
 	
 	def void irAExpedientes() {
