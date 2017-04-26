@@ -1,18 +1,13 @@
 package edu.carmensandiego.unq.test
 
-import org.junit.Test
-import static org.junit.Assert.*
 import edu.carmensandiego.unq.dominio.Villano
-import org.junit.Before
+import org.junit.Test
 
+import static org.junit.Assert.*
 
 class VillanoTest {	
 	
  	Villano villano
-
-	@Before def void setup() {
-		villano = new Villano('Cacho Muchacho')
-	}
 
 	@Test def void testAgregarUnaNuevaSeniaCorrectamente() {
 		assertTrue(villano.getSeniasParticulares.empty)
