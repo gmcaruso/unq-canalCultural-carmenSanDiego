@@ -10,6 +10,7 @@ class JuegoApplication extends Application {
 //		new MapaMundiWindow(this, new MapaMundiAppModel)
 //		new ExpedienteWindow(this, Expediente.instance)
 		new InicioJuegoWindow(this, new Juego)
+//		new CrearExpedienteWindow(this, new Expediente)
 	}
 	
 	def static main(String[] args) {

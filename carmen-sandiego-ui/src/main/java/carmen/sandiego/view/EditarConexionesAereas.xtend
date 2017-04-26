@@ -1,54 +1,55 @@
 package carmen.sandiego.view
 
 import edu.carmensandiego.unq.dominio.Pais
+import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
-
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.layout.HorizontalLayout
 
-class EditarCaracteristicasPaisWindow extends SimpleWindow<Pais>{
+class EditarConexionesAereas extends SimpleWindow<Pais> {
 	
 	new(WindowOwner parent, Pais pais) {
-		super(parent, pais)
-		title = "Editar Caracteristicas"
+			super(parent, pais)
+		title = "Editar Conexiones Aereas"
+	}
+	
+	override protected addActions(Panel actionsPanel) {
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-		val listaCaracteristicas = new Panel(mainPanel)
-		listaCaracteristicas.layout = new VerticalLayout
+		val listaConexionesAereas = new Panel(mainPanel)
+		listaConexionesAereas.layout = new VerticalLayout
 		
 		
-		new Label(listaCaracteristicas).text = "Carateristicas: "
+		new Label(listaConexionesAereas).text = "Conexiones: "
 		
-		new List(listaCaracteristicas) => [
+		new List(listaConexionesAereas) => [
 			width = 220 
-			items <=> "caracteristicas"
+			value <=> "caracteristicas"
 			]
 			
-		new Button(listaCaracteristicas) => [
+		new Button(listaConexionesAereas) => [
 			caption = "Eliminar"
-			onClick [ | eliminarCaracteristica ] 
+			onClick [ | eliminarConexion ] 
 		
 			]
 		
 		val agregarPanel = new Panel(mainPanel) 
 		agregarPanel.layout = new ColumnLayout(2)
-		new TextBox(agregarPanel) =>[
+		new List(agregarPanel) =>[
 			value <=> "caracteristicas"
 		]
 		
 		new Button(agregarPanel) => [
 			caption = "Agregar" 
-			onClick [| agregarCaracteristica]
+			onClick [| agregarConexion]
 		]
 		
 		val aceptarPanel = new Panel(mainPanel)
@@ -60,20 +61,17 @@ class EditarCaracteristicasPaisWindow extends SimpleWindow<Pais>{
 		
 	}
 	
-	def aceptarCambios() {
-	}
-	
-	def agregarCaracteristica() {
-		new EditarCaracteristicasPaisWindow(this, new Pais).open
+	def agregarConexion() {
+		this.modelObject.crearConexionCon()
 		
 	}
 	
-	def eliminarCaracteristica() {
+	def aceptarCambios() {
+		
 	}
 	
-	override protected addActions(Panel actionsPanel) {
+	def eliminarConexion() {
+		this.modelObject.eliminarConexion(modelObject)
 	}
-	
-	
 	
 }

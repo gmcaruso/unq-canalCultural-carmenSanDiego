@@ -19,7 +19,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 	
 	new(WindowOwner parent, Pais pais) {
 		super(parent, pais)
-		title = "Mapamundi - Nuevo Pais"
+		title = "Mapamundi - Editar Pais"
 	}
 	
 	override createFormPanel(Panel mainPanel) {
@@ -34,16 +34,19 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(editorPanel).text = "Caracteriscticas: " 
 		
 		new Button(editorPanel) => [
-			caption = "Editar Caracteristicas"
-			
-			onClick [ | jugar ]
+
+			caption = "Editar Caracteristicas"			
+			onClick [ | this.irAEditarCaracteristicas]
+
 		]
  		
  		val listaCaracteristicasPanel= new Panel(mainPanel)
  		listaCaracteristicasPanel.layout = new ColumnLayout(1)
 		new List(listaCaracteristicasPanel) => [
 			width = 220
+		
 			items <=> "caracteristicas"
+			
 		]
 		
 		val listaConexionesAeresPanel = new Panel(mainPanel)
@@ -51,7 +54,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(listaConexionesAeresPanel).text = "Conexiones Aereas"
 		new Button(listaConexionesAeresPanel) => [
 			caption = "Editar Conexiones Aereas: "
-			onClick[ | this.irAEditarCaracteristicas]
+			onClick[| irAEditarConexionesAereas ]
 		]
 		
 		val listaConexionesAereas = new Panel(mainPanel)
@@ -66,7 +69,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(listaLugaresInteresPanel).text = "Lugares De Interes: "
 		new Button(listaLugaresInteresPanel) => [
 			caption = "Editar Lugares De Interes: "
-			onClick [| jugar]
+			onClick [| irAEditarLugares]
 		]
 		 
 		 val listaLugaresInteres = new Panel(mainPanel)
@@ -85,9 +88,19 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		
 	}
 	
-	def irAEditarCaracteristicas(){
-		
+	def irAEditarLugares() {
+		//new EditarLugares(this, new  Lugar).open
 	}
+	
+	def irAEditarConexionesAereas() {
+		new EditarConexionesAereas(this, new Pais).open
+	}
+	
+	def irAEditarCaracteristicas() {
+		new EditarCaracteristicasPaisWindow(this, new Pais).open
+	}
+	
+
 	
 	def aceptarCambios() {
 		this.close

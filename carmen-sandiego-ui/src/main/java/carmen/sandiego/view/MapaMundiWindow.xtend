@@ -24,7 +24,6 @@ class MapaMundiWindow extends TransactionalDialog<MapaMundiAppModel> {
 		new Label(mainPanel).text = "Mapamundi"
 		
 		this.crearListaDePaises(mainPanel)
-		//this.crearEdicionDePaisSeleccionado(mainPanel)
 	}
 	
 	def crearListaDePaises(Panel owner) {
