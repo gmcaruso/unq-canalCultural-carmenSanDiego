@@ -54,7 +54,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(listaConexionesAeresPanel).text = "Conexiones Aereas"
 		new Button(listaConexionesAeresPanel) => [
 			caption = "Editar Conexiones Aereas: "
-			onClick[| jugar ]
+			onClick[| irAEditarConexionesAereas ]
 		]
 		
 		val listaConexionesAereas = new Panel(mainPanel)
@@ -70,7 +70,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Button(listaLugaresInteresPanel) => [
 			caption = "Editar Lugares De Interes: "
 			
-			onClick [| jugar]
+			onClick [| irAEditarLugares]
 		]
 		 
 		 val listaLugaresInteres = new Panel(mainPanel)
@@ -94,13 +94,19 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		
 	}
 	
-	def agregarCaracteristicas() {
+	def irAEditarLugares() {
+		//new EditarLugares(this, new  Lugar).open
+	}
+	
+	def irAEditarConexionesAereas() {
+		new EditarConexionesAereas(this, new Pais).open
+	}
+	
+	def irAEditarCaracteristicas() {
 		new EditarCaracteristicasPaisWindow(this, new Pais).open
 	}
 	
-	def irAEditarCaracteristicas(){
-		
-	}
+
 	
 	def aceptarCambios() {
 		this.close
