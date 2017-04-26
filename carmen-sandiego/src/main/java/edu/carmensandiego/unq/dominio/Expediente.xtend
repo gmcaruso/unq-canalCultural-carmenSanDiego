@@ -1,6 +1,5 @@
 package edu.carmensandiego.unq.dominio
 
-import edu.carmensandiego.unq.dominio.repos.RepoVillanos
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
@@ -9,7 +8,6 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class Expediente {
 	List<Villano> villanos = newArrayList;
-	RepoVillanos repoVillanos
 	
 	new() {
 		villanos = this.fabricarVillanos
