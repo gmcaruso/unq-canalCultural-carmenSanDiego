@@ -12,8 +12,9 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import org.uqbar.arena.aop.windows.TransactionalDialog
 
-class PaisWindow extends SimpleWindow<Pais> {
+class PaisWindow extends TransactionalDialog<Pais> {
 	
 	new(WindowOwner parent, Pais pais) {
 		super(parent, pais)
@@ -32,7 +33,7 @@ class PaisWindow extends SimpleWindow<Pais> {
 		new Label(editorPanel).text = "Caracteriscticas: " 
 		
 		new Button(editorPanel) => [
-		caption = "Agegar Caracteristicas"
+		caption = "Agregar Caracteristicas"
 		
 		onClick [| new EditarCaracteristicasPaisWindow(this, new Pais).open]
 		
@@ -53,7 +54,8 @@ class PaisWindow extends SimpleWindow<Pais> {
 		new Button(listaConexionesAeresPanel) => [
 			caption = "Agregar Conexiones Aereas: "
 			
-			onClick[ | new EditorConexionesAereas(this, new Pais).open]
+			onClick[ | new EditarConexionesAereas(this, new Pais).open
+			]
 		]
 		
 		val listaConexionesAereas = new Panel(mainPanel)
@@ -69,7 +71,7 @@ class PaisWindow extends SimpleWindow<Pais> {
 		new Button(listaLugaresInteresPanel) => [
 			caption = "Agregar Lugares De Interes: "
 			
-			onClick [| new EditorConexionesAereas(this, new Pais).open]
+			onClick [| new EditarConexionesAereas(this, new Pais).open]
 		]
 		 
 		 val listaLugaresInteres = new Panel(mainPanel)

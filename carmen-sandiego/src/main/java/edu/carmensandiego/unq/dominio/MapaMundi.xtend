@@ -39,11 +39,8 @@ class MapaMundi {
 	}
 		
 	def eliminarPais(Pais paisSeleccionado) {
-		if(!paisSeleccionado.conexionesAereas.empty) {
-			throw new UnsupportedOperationException("El pais que intena borrar tiene conexiones a otros paises. Quite estas conexiones para poder borrarlo.")
-		} 
 		this.listaPaises.remove(paisSeleccionado)
-		ObservableUtils::firePropertyChanged(this, "listaPaises", this.listaPaises)
+	
 	}
 	
 	def agregarPaisNuevo(Pais pais) {
@@ -56,7 +53,6 @@ class MapaMundi {
 		} 
 
 		listaPaises.add(pais)
-		ObservableUtils::firePropertyChanged(this, "listaPaises", this.listaPaises)
 	}
 		
 	def getLugar() {
