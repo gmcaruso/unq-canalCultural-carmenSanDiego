@@ -23,6 +23,10 @@ class Juego {
 		expediente.agregarVillano(new Villano(nombre, sexo, senias, hobbies))
 	}
 	
+	def crearPais(String nombre, java.util.List<String> caracteristicas, java.util.List<Pais> conexionesAereas) {
+		mapaMundi.agregarPaisNuevo(new Pais (nombre, caracteristicas, conexionesAereas))
+	}
+	
 	def esNuevoVillano() {
 		var esta = true
 		for(Villano villano : expediente.villanos){
@@ -52,9 +56,19 @@ class Juego {
 		mapaMundi.eliminarPais(paisSeleccionado)
 	}
 	
-	def agregarPais(){
-		val Pais = new Pais
-		mapaMundi.agregarPaisNuevo(Pais)
+	def agregarPais(Pais pais){
+		mapaMundi.agregarPaisNuevo(pais)
 	}
+	
+	def eliminarCaracteristica() {
+		paisSeleccionado.eliminarCaracteristica(elementoSeleccionado)
+	}
+	
+	def agregarCaracteristica() {
+		villanoSeleccionado.agregarNuevoHobbie(inputText)
+	}
+	
+	
+	
 	
 }

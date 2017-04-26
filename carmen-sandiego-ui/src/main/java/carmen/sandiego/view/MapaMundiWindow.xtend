@@ -45,7 +45,7 @@ class MapaMundiWindow extends TransactionalDialog<Juego> {
 		
 		new Button(owner) =>[
 			caption = "Nuevo"
-			onClick [ | new PaisWindow(this, new Pais).open ]
+			onClick [ | new PaisWindow(this, this.modelObject.paisSeleccionado).open ]
 		]			
 	}
 	

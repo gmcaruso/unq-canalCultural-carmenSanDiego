@@ -14,6 +14,12 @@ class Pais {
 	List<Lugar> lugaresDeInteres
 	List<Lugar> lugaresPosibles
 	
+	new (String nombre,java.util.List<String> caracteristicas, java.util.List<Pais> conexionesAereas){
+		this.nombre = nombre
+		this.caracteristicas = caracteristicas
+		this.conexionesAereas = conexionesAereas
+	}
+	
 	new(String nombreDelPais) {
 		this.nombre = nombreDelPais
 		this.caracteristicas = newArrayList
@@ -48,7 +54,7 @@ class Pais {
 
 	}
 
-	def borrarCaracteristica(String string) {
+	def eliminarCaracteristica(String string) {
 		caracteristicas.remove(string)
 	}
 	
