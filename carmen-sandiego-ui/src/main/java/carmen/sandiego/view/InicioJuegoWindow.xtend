@@ -1,5 +1,6 @@
 package carmen.sandiego.view
 
+import appModel.MapaMundiAppModel
 import edu.carmensandiego.unq.dominio.Juego
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
@@ -8,10 +9,8 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import edu.carmensandiego.unq.dominio.Expediente
-import appModel.MapaMundiAppModel
 
-class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
+class InicioJuegoWindow extends SimpleWindow<Juego> {
 	
 	new(WindowOwner parent, Juego model) {
 		super(parent, model)
@@ -59,7 +58,7 @@ class CrearInicioJuegoWindow extends SimpleWindow<Juego> {
 	}
 	
 	def void irAExpedientes() {
-		this.openDialog(new CrearExpedienteWindow(this, new Expediente))
+		this.openDialog(new ExpedienteWindow(this, this.modelObject))
 	}
 	
 	def openDialog(Dialog<?> dialog) {

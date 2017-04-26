@@ -1,6 +1,6 @@
 package carmen.sandiego.view
 
-import edu.carmensandiego.unq.dominio.Expediente
+import edu.carmensandiego.unq.dominio.Juego
 import edu.carmensandiego.unq.dominio.Villano
 import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.bindings.PropertyAdapter
@@ -15,10 +15,10 @@ import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
-class CrearExpedienteWindow extends TransactionalDialog<Expediente>  { 
+class ExpedienteWindow extends TransactionalDialog<Juego>  { 
 	
-	new(WindowOwner parent, Expediente model) {
-		super(parent, model)
+	new(WindowOwner owner, Juego model) {
+		super(owner, model)
 		title = "Expedientes"
 	}
 	
@@ -49,7 +49,7 @@ class CrearExpedienteWindow extends TransactionalDialog<Expediente>  {
 		columnaIzquierda.width = 200
 		
 		new List<Villano>(columnaIzquierda) => [
-			(items <=> "villanos").adapter = new PropertyAdapter(Villano, "nombre")
+			(items <=> "expediente.villanos").adapter = new PropertyAdapter(Villano, "nombre")
 			width = 220
 			height = 220
 			value <=> "villanoSeleccionado"
@@ -62,7 +62,7 @@ class CrearExpedienteWindow extends TransactionalDialog<Expediente>  {
 		
 		new Button(columnaIzquierda) => [
 			caption = "Editar"
-			onClick [ |  ]
+			onClick [ |this.irAEditarVillano]
 		]
 	}
 	
@@ -104,13 +104,13 @@ class CrearExpedienteWindow extends TransactionalDialog<Expediente>  {
 	// ** Acciones
 	// ********************************************************
 	
-//	TODO Hay que ver como se hacen las transacciones de ventanas...
 	def void irANuevoVillano() {
-		this.openDialog(new CrearVillanoWindow(this, new Villano))
+		this.modelObject.villanoSeleccionado = new Villano()
+		this.openDialog(new EditarVillanoWindow(this, this.modelObject, "Expedientes - Nuevo Villano"))
 	}
 	
 	def void irAEditarVillano() {
-		this.openDialog(new CrearVillanoWindow(this, modelObject.villanoSeleccionado))
+		this.openDialog(new EditarVillanoWindow(this, this.modelObject, "Expedientes - Editar Villano"))
 	}
 	
 	def openDialog(Dialog<?> dialog) {

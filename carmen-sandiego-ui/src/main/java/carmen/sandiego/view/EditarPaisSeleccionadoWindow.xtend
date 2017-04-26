@@ -66,7 +66,6 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(listaLugaresInteresPanel).text = "Lugares De Interes: "
 		new Button(listaLugaresInteresPanel) => [
 			caption = "Editar Lugares De Interes: "
-			
 			onClick [| jugar]
 		]
 		 
@@ -83,11 +82,6 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 			caption = "Aceptar"
 			onClick[| aceptarCambios]
 		]
-		
-		
-			
-	
-		
 		
 	}
 	

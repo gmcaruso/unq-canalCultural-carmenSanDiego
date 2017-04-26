@@ -13,7 +13,7 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.layout.HorizontalLayout
 
-class CrearPaisWindow extends SimpleWindow<Pais> {
+class PaisWindow extends SimpleWindow<Pais> {
 	
 	new(WindowOwner parent, Pais pais) {
 		super(parent, pais)
