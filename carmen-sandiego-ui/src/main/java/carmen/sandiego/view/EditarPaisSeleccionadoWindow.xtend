@@ -19,7 +19,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 	
 	new(WindowOwner parent, Pais pais) {
 		super(parent, pais)
-		title = "Mapamundi - Nuevo Pais"
+		title = "Mapamundi - Editar Pais"
 	}
 	
 	override createFormPanel(Panel mainPanel) {
@@ -34,15 +34,19 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		new Label(editorPanel).text = "Caracteriscticas: " 
 		
 		new Button(editorPanel) => [
+
 			caption = "Editar Caracteristicas"			
 			onClick [ | this.irAEditarCaracteristicas]
+
 		]
  		
  		val listaCaracteristicasPanel= new Panel(mainPanel)
  		listaCaracteristicasPanel.layout = new ColumnLayout(1)
 		new List(listaCaracteristicasPanel) => [
 			width = 220
+		
 			items <=> "caracteristicas"
+			
 		]
 		
 		val listaConexionesAeresPanel = new Panel(mainPanel)
@@ -88,6 +92,10 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 	
 		
 		
+	}
+	
+	def agregarCaracteristicas() {
+		new EditarCaracteristicasPaisWindow(this, new Pais).open
 	}
 	
 	def irAEditarCaracteristicas(){

@@ -31,7 +31,7 @@ class EditarCaracteristicasPaisWindow extends SimpleWindow<Pais>{
 		
 		new List(listaCaracteristicas) => [
 			width = 220 
-			value <=> "caracteristicas"
+			items <=> "caracteristicas"
 			]
 			
 		new Button(listaCaracteristicas) => [
@@ -64,6 +64,8 @@ class EditarCaracteristicasPaisWindow extends SimpleWindow<Pais>{
 	}
 	
 	def agregarCaracteristica() {
+		new EditarCaracteristicasPaisWindow(this, new Pais).open
+		
 	}
 	
 	def eliminarCaracteristica() {

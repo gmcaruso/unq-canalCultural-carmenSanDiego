@@ -2,16 +2,16 @@ package carmen.sandiego.view
 
 import edu.carmensandiego.unq.dominio.Pais
 import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.TextBox
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.List
-import org.uqbar.arena.layout.HorizontalLayout
 
 class CrearPaisWindow extends SimpleWindow<Pais> {
 	
@@ -32,9 +32,9 @@ class CrearPaisWindow extends SimpleWindow<Pais> {
 		new Label(editorPanel).text = "Caracteriscticas: " 
 		
 		new Button(editorPanel) => [
-		caption = "Editar Caracteristicas"
+		caption = "Agegar Caracteristicas"
 		
-		onClick [|this.close]
+		onClick [| new EditarCaracteristicasPaisWindow(this, new Pais).open]
 		
 			]
  		
@@ -51,9 +51,9 @@ class CrearPaisWindow extends SimpleWindow<Pais> {
 		listaConexionesAeresPanel.layout = new ColumnLayout(2)
 		new Label(listaConexionesAeresPanel).text = "Conexiones Aereas"
 		new Button(listaConexionesAeresPanel) => [
-			caption = "Editar Caracteristicas: "
+			caption = "Agregar Conexiones Aereas: "
 			
-			onClick[ | jugar]
+			onClick[ | new EditorConexionesAereas(this, new Pais).open]
 		]
 		
 		val listaConexionesAereas = new Panel(mainPanel)
@@ -67,9 +67,9 @@ class CrearPaisWindow extends SimpleWindow<Pais> {
 		listaLugaresInteresPanel.layout = new ColumnLayout(2)
 		new Label(listaLugaresInteresPanel).text = "Lugares De Interes: "
 		new Button(listaLugaresInteresPanel) => [
-			caption = "Editar Lugares De Interes: "
+			caption = "Agregar Lugares De Interes: "
 			
-			onClick [| jugar]
+			onClick [| new EditorConexionesAereas(this, new Pais).open]
 		]
 		 
 		 val listaLugaresInteres = new Panel(mainPanel)
