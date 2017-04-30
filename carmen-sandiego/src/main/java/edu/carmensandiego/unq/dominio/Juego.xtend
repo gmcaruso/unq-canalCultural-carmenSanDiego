@@ -11,9 +11,9 @@ class Juego {
 	List<Caso> casos
 	Caso casoActual
 	Expediente expediente = new Expediente
-	MapaMundi mapaMundi
+	MapaMundi mapaMundi = new MapaMundi
 	Detective detective
-	
+	Pais paisSeleccionado 
 	Villano villanoSeleccionado = expediente.villanos.get(0)
 	String elementoSeleccionado
 	String inputText
@@ -21,6 +21,10 @@ class Juego {
 	
 	def crearVillano(String nombre, String sexo, java.util.List<String> senias, java.util.List<String> hobbies) {
 		expediente.agregarVillano(new Villano(nombre, sexo, senias, hobbies))
+	}
+	
+	def crearPais(String nombre, java.util.List<String> caracteristicas, java.util.List<Pais> conexionesAereas) {
+		mapaMundi.agregarPaisNuevo(new Pais (nombre, caracteristicas, conexionesAereas))
 	}
 	
 	def esNuevoVillano() {
@@ -47,5 +51,24 @@ class Juego {
 	def eliminarSenia() {
 		villanoSeleccionado.eliminarSenia(elementoSeleccionado)
 	}
+	
+	def eliminarPais(){
+		mapaMundi.eliminarPais(paisSeleccionado)
+	}
+	
+	def agregarPais(Pais pais){
+		mapaMundi.agregarPaisNuevo(pais)
+	}
+	
+	def eliminarCaracteristica() {
+		paisSeleccionado.eliminarCaracteristica(elementoSeleccionado)
+	}
+	
+	def agregarCaracteristica() {
+		villanoSeleccionado.agregarNuevoHobbie(inputText)
+	}
+	
+	
+	
 	
 }

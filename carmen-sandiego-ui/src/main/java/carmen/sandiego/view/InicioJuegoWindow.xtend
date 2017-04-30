@@ -50,7 +50,7 @@ class InicioJuegoWindow extends SimpleWindow<Juego> {
 	
 //	TODO Hay que ver como se hacen las transacciones de ventanas...
 	def void irAResolverMisterio() {
-//		this.openDialog(new CrearResolverMisterioWindow(this))
+		this.openDialog(new ResolverMisterioWindow(this, this.modelObject))
 	}
 	
 	def void irAMapamundi() {

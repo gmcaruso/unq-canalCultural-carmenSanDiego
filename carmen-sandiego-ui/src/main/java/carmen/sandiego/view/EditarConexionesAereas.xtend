@@ -62,7 +62,7 @@ class EditarConexionesAereas extends SimpleWindow<Pais> {
 	}
 	
 	def agregarConexion() {
-		this.modelObject.crearConexionCon()
+		//this.modelObject.crearConexionCon()
 		
 	}
 	

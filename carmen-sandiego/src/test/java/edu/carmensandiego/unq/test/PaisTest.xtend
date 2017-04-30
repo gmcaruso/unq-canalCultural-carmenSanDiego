@@ -42,7 +42,7 @@ class PaisTest {
 
 	@Test def void testBorrarCaracteristicaDeUnPais() {
 		pais.agregarCaracteristica("Caracteristica para borrar")
-		pais.borrarCaracteristica("Caracteristica para borrar")
+		pais.eliminarCaracteristica("Caracteristica para borrar")
 		assertTrue("Se espera que la caracteristica sea borrada", pais.caracteristicas.empty)
 
 	}

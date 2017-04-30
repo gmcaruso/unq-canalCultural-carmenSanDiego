@@ -1,5 +1,8 @@
 package edu.carmensandiego.unq.dominio
 
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class Banco extends Lugar {
 	
 	
