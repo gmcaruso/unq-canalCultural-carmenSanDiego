@@ -41,10 +41,4 @@ class Expediente {
 	def getVillanos(){
 		villanos
 	}
-	
-//	new() {
-//		repoVillanos = RepoVillanos.instance
-//		villanos = repoVillanos.fabricarVillanos
-//	}
-	
 }

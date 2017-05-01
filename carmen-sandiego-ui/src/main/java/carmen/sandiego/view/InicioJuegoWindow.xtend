@@ -8,7 +8,6 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import edu.carmensandiego.unq.dominio.Pais
 
 class InicioJuegoWindow extends SimpleWindow<Juego> {
 	
@@ -48,7 +47,6 @@ class InicioJuegoWindow extends SimpleWindow<Juego> {
 	// ** Acciones
 	// ********************************************************
 	
-//	TODO Hay que ver como se hacen las transacciones de ventanas...
 	def void irAResolverMisterio() {
 		this.openDialog(new ResolverMisterioWindow(this, this.modelObject))
 	}

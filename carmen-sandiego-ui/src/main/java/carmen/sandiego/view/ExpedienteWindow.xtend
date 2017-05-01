@@ -22,9 +22,6 @@ class ExpedienteWindow extends TransactionalDialog<Juego>  {
 		title = "Expedientes"
 	}
 	
-	override protected addActions(Panel arg0) {
-	}
-	
 	override protected createFormPanel(Panel mainPanel) {
 		
 		var granPanel = new Panel(mainPanel)
@@ -32,15 +29,12 @@ class ExpedienteWindow extends TransactionalDialog<Juego>  {
 		
 		this.crearColumnaIzquierda(granPanel)
 		
-		////////////////////////////////////////////////
-		
 		var columnaDerecha = new Panel(granPanel)	
 		columnaDerecha.layout = new ColumnLayout(1)	
 		
 		this.crearPanelNombreSexo(columnaDerecha)
 		
 		crearPanelListas(columnaDerecha)
-		
 	}
 	
 	private def crearColumnaIzquierda(Panel granPanel) {
