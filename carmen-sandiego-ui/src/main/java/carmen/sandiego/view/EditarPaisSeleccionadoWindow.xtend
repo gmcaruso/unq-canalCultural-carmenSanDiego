@@ -76,7 +76,7 @@ class EditarPaisSeleccionadoWindow extends SimpleWindow<Pais> {
 		 listaLugaresInteres.layout = new ColumnLayout(1)
 		 new List(listaLugaresInteres) => [
 		 	width = 220
-		 	(items <=> "lugaresDeInteres").adapter = new PropertyAdapter(Lugar, "nombreLugar")
+		 	(items <=> "lugares").adapter = new PropertyAdapter(Lugar, "nombre")
 		 ]
 		
 		val aceptarPanel = new Panel(mainPanel)

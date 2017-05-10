@@ -1,7 +1,9 @@
 package carmen.sandiego.view
 
 import edu.carmensandiego.unq.dominio.Juego
+import edu.carmensandiego.unq.dominio.Pais
 import org.uqbar.arena.aop.windows.TransactionalDialog
+import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
@@ -10,9 +12,8 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.bindings.PropertyAdapter
-import edu.carmensandiego.unq.dominio.Pais
 
 class EditarPaisWindow extends TransactionalDialog<Juego> {
 
@@ -81,9 +82,9 @@ new(WindowOwner owner, Juego model, String newTitle) {
 		new Button(actionsPanel) => [
 			caption = "Aceptar"
 			onClick [| 
-				if(modelObject.esNuevoVillano){
+				if(modelObject.esNuevoPais){
 					this.modelObject.crearPais(modelObject.paisSeleccionado.nombre, modelObject.paisSeleccionado.caracteristicas, 
-					modelObject.paisSeleccionado.conexionesAereas)
+					modelObject.paisSeleccionado.lugares)
 				}
 				this.close
 			]

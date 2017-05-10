@@ -8,29 +8,35 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class Juego {
 	
-	List<Caso> casos
-	Caso casoActual
-	Expediente expediente = new Expediente
+	Caso caso = new Caso
 	MapaMundi mapaMundi = new MapaMundi
-	Detective detective
 	Pais paisSeleccionado 
-	Villano villanoSeleccionado = expediente.villanos.get(0)
+	Villano villanoSeleccionado = caso.expediente.villanos.get(0)
 	String elementoSeleccionado
 	String inputText
 	boolean editarSenia
 	
-	def crearVillano(String nombre, String sexo, java.util.List<String> senias, java.util.List<String> hobbies) {
-		expediente.agregarVillano(new Villano(nombre, sexo, senias, hobbies))
+	def crearVillano(String nombre, String sexo, List<String> senias, List<String> hobbies) {
+		caso.expediente.agregarVillano(new Villano(nombre, sexo, senias, hobbies))
 	}
 	
-	def crearPais(String nombre, java.util.List<String> caracteristicas, java.util.List<Pais> conexionesAereas) {
-		mapaMundi.agregarPaisNuevo(new Pais (nombre, caracteristicas, conexionesAereas))
+	def crearPais(String nombre, List<String> caracteristicas, List<Lugar> lugares) {
+		mapaMundi.agregarPaisNuevo(new Pais (nombre, caracteristicas, lugares))
 	}
 	
 	def esNuevoVillano() {
 		var esta = true
-		for(Villano villano : expediente.villanos){
+		for(Villano villano : caso.expediente.villanos){
 			if(villano.nombre == villanoSeleccionado.nombre && villano.sexo == villanoSeleccionado.sexo)
+				esta = false
+			}
+		esta
+	}
+	
+	def esNuevoPais() {
+		var esta = true
+		for(Pais pais : mapaMundi.paises){
+			if(pais.nombre == paisSeleccionado.nombre)
 				esta = false
 			}
 		esta
@@ -67,8 +73,5 @@ class Juego {
 	def agregarCaracteristica() {
 		villanoSeleccionado.agregarNuevoHobbie(inputText)
 	}
-	
-	
-	
 	
 }

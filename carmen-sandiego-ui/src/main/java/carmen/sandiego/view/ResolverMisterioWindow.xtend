@@ -47,6 +47,10 @@ class ResolverMisterioWindow extends TransactionalDialog<Juego> {
 			caption = "Embajada"
 			onClick [ | this.irAPista("Embajada")]
 		]
+		new Button(panelSuperior) => [
+			caption = "Banco"
+			onClick [ | this.irAPista("Banco")]
+		]		
 		
 		var panelInferior = new Panel(mainPanel)
 		panelInferior.layout = new ColumnLayout(1)

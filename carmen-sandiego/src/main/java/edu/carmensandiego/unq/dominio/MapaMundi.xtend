@@ -1,45 +1,51 @@
 package edu.carmensandiego.unq.dominio
 
-import org.uqbar.commons.utils.Observable
-import org.uqbar.commons.model.ObservableUtils
-import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
 @Observable
 @Accessors
 class MapaMundi {
 	
-	List<Pais> listaPaises
-	static MapaMundi instance = new MapaMundi()
-
-	static def getInstance() {
-		instance
-	}
+	List<Pais> paises
 
 	new() {
-		listaPaises = newArrayList()
-		var india = new Pais("India")
-		india.caracteristicas.add("Tiene muchos habitantes")
-		india.caracteristicas.add("Hay un rio muy contaminado")
-		india.agregarNuevoLugar(new Banco(new Informante("Si, vino aqui un senor preguntando sobre piramides")))
-		india.agregarNuevoLugar(new Embajada(new Informante("Si, vino aqui un senor preguntando sobre los faraones")))
-		india.agregarNuevoLugar(new Club(new Informante("Si, vino aqui un senor con muchos anillos")))
+		paises = newArrayList()
 		
-		var egipto = new Pais("Egipto")
-		egipto.caracteristicas.add("Tiene piramides")
-		egipto.caracteristicas.add("Hace mucho calor")
-		egipto.caracteristicas.add("Hay camellos")
-		egipto.agregarNuevoLugar(new Embajada(new Informante("Si, vino aqui un senor preguntando sobre la moneda que usan en Francia e Italia.")))
-		egipto.agregarNuevoLugar(new Banco(new Informante("Si, vino aqui un senor mas bien bajito")))
-		egipto.agregarNuevoLugar(new Biblioteca(new Informante("Ayer vino un hombre de negro muy extrano")))
+		var caracteristicasEgipto = newArrayList()
+		caracteristicasEgipto.add("Tiene muchos habitantes")
+		caracteristicasEgipto.add("Hay un rio muy contaminado")
+		
+		var lugaresEgipto = newArrayList()
+		lugaresEgipto.add(new Banco(new Informante()))
+		lugaresEgipto.add(new Embajada(new Informante()))
+		lugaresEgipto.add(new Club(new Cuidador()))
+		lugaresEgipto.add(new Biblioteca(new Cuidador()))
+		var egipto = new Pais("Egipto", caracteristicasEgipto, lugaresEgipto)
+		
+		/////////////////////////////////////////////
+		
+		var caracteristicasIndia = newArrayList()
+		caracteristicasIndia.add("Tiene piramides")
+		caracteristicasIndia.add("Hace mucho calor")
+		caracteristicasIndia.add("Hay camellos")
+		
+		var lugaresIndia = newArrayList()
+		lugaresIndia.add(new Embajada(new Informante()))
+		lugaresIndia.add(new Banco(new Informante()))
+		lugaresIndia.add(new Biblioteca(new Informante()))
+		lugaresIndia.add(new Club(new Cuidador()))
+		
+		var india = new Pais("India", caracteristicasIndia, lugaresIndia)
 		
 		india.crearConexionCon(egipto)
 		egipto.crearConexionCon(india)
-		listaPaises.addAll(india, egipto)
+		paises.addAll(india, egipto)
 	}
 		
 	def eliminarPais(Pais paisSeleccionado) {
-		this.listaPaises.remove(paisSeleccionado)
+		this.paises.remove(paisSeleccionado)
 	
 	}
 	
@@ -52,7 +58,7 @@ class MapaMundi {
 			throw new UnsupportedOperationException("El pais con ese nombre ya existe")
 		} 
 
-		listaPaises.add(pais)
+		paises.add(pais)
 	}
 		
 	def getLugar() {
@@ -61,7 +67,7 @@ class MapaMundi {
 
 	def getPais(String nombreDelPais) {
 		var Pais paisBuscado = null
-		for (Pais unPais : this.listaPaises) {
+		for (Pais unPais : this.paises) {
 			if(nombreDelPais.equals(unPais.nombre)) paisBuscado = unPais
 		}
 
@@ -70,7 +76,7 @@ class MapaMundi {
 	}
 	
 	def paisExiste(String nombre) {
-		listaPaises.exists[unPais|nombre.equalsIgnoreCase(unPais.nombre)]
+		paises.exists[unPais|nombre.equalsIgnoreCase(unPais.nombre)]
 	}
 	
 }

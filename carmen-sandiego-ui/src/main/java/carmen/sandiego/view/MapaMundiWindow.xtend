@@ -1,5 +1,6 @@
 package carmen.sandiego.view
 
+import edu.carmensandiego.unq.dominio.Juego
 import edu.carmensandiego.unq.dominio.Pais
 import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.bindings.PropertyAdapter
@@ -10,7 +11,6 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import edu.carmensandiego.unq.dominio.Juego
 
 class MapaMundiWindow extends TransactionalDialog<Juego> {
 	
@@ -31,7 +31,7 @@ class MapaMundiWindow extends TransactionalDialog<Juego> {
 		new Label(owner).text = "Paises"
 		new List<Pais>(owner)=>[
 		value <=> "paisSeleccionado"
-			(items <=> "mapaMundi.listaPaises").adapter = new PropertyAdapter(Pais, "nombre")
+			(items <=> "mapaMundi.paises").adapter = new PropertyAdapter(Pais, "nombre")
 		]
 		new Button(owner) =>[
 			caption = "Eliminar"
@@ -53,12 +53,9 @@ class MapaMundiWindow extends TransactionalDialog<Juego> {
 		new Label(owner).value <=> "paisSeleccionado.nombre"
 	}
 	
-	override protected addActions(Panel actionsPanel) {
-		//no queremos usar este template default
+	override protected createFormPanel(Panel arg0) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	override protected createFormPanel(Panel mainPanel) {
-		//no queremos usar este template default
-	}
 	
 }

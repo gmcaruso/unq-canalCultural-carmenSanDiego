@@ -1,6 +1,7 @@
 package carmen.sandiego.view
 
 import edu.carmensandiego.unq.dominio.Pais
+import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
@@ -8,11 +9,9 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.aop.windows.TransactionalDialog
 
 class PaisWindow extends TransactionalDialog<Pais> {
 	
@@ -33,12 +32,9 @@ class PaisWindow extends TransactionalDialog<Pais> {
 		new Label(editorPanel).text = "Caracteriscticas: " 
 		
 		new Button(editorPanel) => [
-		caption = "Agregar Caracteristicas"
-		
-		onClick [| new EditarCaracteristicasPaisWindow(this, new Pais).open]
-		
-			]
- 		
+			caption = "Agregar Caracteristicas"
+			onClick [| new EditarCaracteristicasPaisWindow(this, new Pais).open]
+		]
  		
  		val listaCaracteristicasPanel= new Panel(mainPanel)
  		listaCaracteristicasPanel.layout = new ColumnLayout(1)
@@ -46,7 +42,6 @@ class PaisWindow extends TransactionalDialog<Pais> {
 			width = 220
 			value <=> "caracteristicas"
 			]
-		
 		
 		val listaConexionesAeresPanel = new Panel(mainPanel)
 		listaConexionesAeresPanel.layout = new ColumnLayout(2)
@@ -74,13 +69,12 @@ class PaisWindow extends TransactionalDialog<Pais> {
 			onClick [| new EditarConexionesAereas(this, new Pais).open]
 		]
 		 
-		 val listaLugaresInteres = new Panel(mainPanel)
-		 listaLugaresInteres.layout = new ColumnLayout(1)
-		 new List(listaLugaresInteres) => [
+		val listaLugaresInteres = new Panel(mainPanel)
+		listaLugaresInteres.layout = new ColumnLayout(1)
+		new List(listaLugaresInteres) => [
 		 	width = 220
-		 	value <=> "lugaresDeInteres"
-		 ]
-		
+		 	value <=> "lugares"
+		]
 		
 		val aceptarPanel = new Panel(mainPanel)
 		aceptarPanel.layout = new HorizontalLayout
@@ -88,22 +82,5 @@ class PaisWindow extends TransactionalDialog<Pais> {
 			caption = "Aceptar"
 			onClick [|this.close]
 		]
-		
-		
-			
-	
-		
-		
 	}
-	
-	def aceptarCambios() {
-	}
-	
-	def jugar() {
-	}
-	
-	override protected addActions(Panel actionsPanel) {
-	}
-	
-	
 }

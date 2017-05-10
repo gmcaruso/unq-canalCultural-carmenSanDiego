@@ -43,7 +43,7 @@ class ExpedienteWindow extends TransactionalDialog<Juego>  {
 		columnaIzquierda.width = 200
 		
 		new List<Villano>(columnaIzquierda) => [
-			(items <=> "expediente.villanos").adapter = new PropertyAdapter(Villano, "nombre")
+			(items <=> "caso.expediente.villanos").adapter = new PropertyAdapter(Villano, "nombre")
 			width = 220
 			height = 220
 			value <=> "villanoSeleccionado"

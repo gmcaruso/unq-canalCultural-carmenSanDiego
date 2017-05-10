@@ -5,12 +5,8 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class Biblioteca extends Lugar {
 	
-	new(Persona laPersona) {
-		super("Biblioteca", laPersona)
-	}
-	
-	new() {
-		super("Biblioteca", null)
+	new(Persona persona) {
+		super("Biblioteca", persona)
 	}
 	
 }

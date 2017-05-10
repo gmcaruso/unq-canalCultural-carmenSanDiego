@@ -1,20 +1,20 @@
 package edu.carmensandiego.unq.dominio
 
-import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
-import org.uqbar.commons.utils.Observable
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.commons.utils.Observable
 
 @Accessors
 @Observable
 class Villano extends Persona {
-	
 	String nombre
     String sexo
     List<String> seniasParticulares = newArrayList
     List<String> hobbies = newArrayList
     
-    new(String nombre, String sexo, List<String> senias, List<String> hobbies) {
+    new(String nombre, String sexo, List<String> senias, 
+    	List<String> hobbies) {
 		this.nombre = nombre
 		this.sexo = sexo
 		this.seniasParticulares = senias
@@ -24,12 +24,7 @@ class Villano extends Persona {
 	new() {
 	}
 	
-	override darPista() {
-	}
-	
-	def cambiarNombreDelVillano(String nuevoNombre) {
-		nombre = nuevoNombre
-		ObservableUtils.firePropertyChanged(this, "nombre", this.nombre);
+	override darPista(Lugar lugar) {
 	}
 	
 	def agregarNuevaSenia(String seniaAAgregar) {

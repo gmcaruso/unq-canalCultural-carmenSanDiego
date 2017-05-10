@@ -6,11 +6,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class Detective {
 	
-	Caso caso
-	Pais estoyPais;
-	List<String> miListaDePistas;
-	Lugar lugarQueVoyAVisitar;
-	Pais pasiAlQueQuieroViajar;
+	Pais miPais
+	Lugar miLugar
+	List<String> paisesVisitados
 	
 	new(){}
 }

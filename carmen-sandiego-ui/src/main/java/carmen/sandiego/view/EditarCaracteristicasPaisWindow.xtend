@@ -1,19 +1,17 @@
 package carmen.sandiego.view
 
 import edu.carmensandiego.unq.dominio.Pais
+import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
-
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.layout.HorizontalLayout
 
 class EditarCaracteristicasPaisWindow extends SimpleWindow<Pais>{
 	
@@ -26,9 +24,7 @@ class EditarCaracteristicasPaisWindow extends SimpleWindow<Pais>{
 		val listaCaracteristicas = new Panel(mainPanel)
 		listaCaracteristicas.layout = new VerticalLayout
 		
-		
 		new Label(listaCaracteristicas).text = "Carateristicas: "
-		
 		new List(listaCaracteristicas) => [
 			width = 220 
 			items <=> "caracteristicas"

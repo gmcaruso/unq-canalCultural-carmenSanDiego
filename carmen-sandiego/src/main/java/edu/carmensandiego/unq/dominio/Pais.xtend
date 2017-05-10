@@ -9,34 +9,18 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class Pais {
 	String nombre
-    List<String> caracteristicas 
-    List<Pais> conexionesAereas 
-	List<Lugar> lugaresDeInteres
-	List<Lugar> lugaresPosibles
+    List<String> caracteristicas = newArrayList()
+    List<Pais> conexionesAereas = newArrayList()
+	List<Lugar> lugares = newArrayList()
 	
-	new (String nombre,java.util.List<String> caracteristicas, java.util.List<Pais> conexionesAereas){
-		this.nombre = nombre
-		this.caracteristicas = caracteristicas
-		this.conexionesAereas = conexionesAereas
-	}
-	
-	new(String nombreDelPais) {
+	new(String nombreDelPais, List<String> caracteristicas, List<Lugar> lugares) {
 		this.nombre = nombreDelPais
-		this.caracteristicas = newArrayList
-		this.lugaresDeInteres = newArrayList
-		this.lugaresPosibles = newArrayList
-		var banco = new Banco()
-		var biblioteca = new Biblioteca()
-		var embajada = new Embajada()
-		var club = new Club()
-		this.lugaresPosibles.addAll(banco, biblioteca, embajada, club)
-		this.conexionesAereas = newArrayList
+		this.caracteristicas = caracteristicas
+		this.lugares = lugares
+	}
 
-	}
-	
-	new() {
-	}
-	
+	new(){
+	}	
 	
 	def crearConexionCon(Pais conexionAAgregar) {
 		if(this.conexionesAereas.contains(conexionAAgregar.nombre) || this.nombre.equalsIgnoreCase(conexionAAgregar.nombre)) {
@@ -45,13 +29,11 @@ class Pais {
 
 		this.conexionesAereas.add(conexionAAgregar)
 		conexionAAgregar.conexionesAereas.add(this)
-
 	}
 	
 	def eliminarConexion(Pais pais) {
 		this.conexionesAereas.remove(pais)
 		pais.conexionesAereas.remove(this)
-
 	}
 
 	def eliminarCaracteristica(String string) {
@@ -70,49 +52,4 @@ class Pais {
 		ObservableUtils::firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 
-	def eliminarLugar(Lugar lugar) {
-		lugaresDeInteres.remove(lugar)
-		lugaresPosibles.add(lugar)
-		ObservableUtils::firePropertyChanged(this, "lugaresDeInteres", this.lugaresDeInteres)
-	}
-
-	def agregarNuevoLugar(Lugar lugar) {
-		if(this.lugaresDeInteres.size == 3) {
-			throw new UnsupportedOperationException("No se pueden cargar mas lugares a este pais. Ya alncanzo el maximo permitido")
-		}
-
-		if(estaEnLaListaDeLugaresPosibles(lugar)) {
-			lugaresDeInteres.add(lugar)
-			removerLugarPosible(lugar)
-		} else {
-			throw new UnsupportedOperationException("El lugar que intenta agregar ya pertenece al pais")
-
-		}
-	}
-	
-	def removerLugarPosible(Lugar lugarARemover) {
-		var Lugar lugarBuscado
-		for (Lugar unLugar : this.lugaresPosibles) {
-			if(lugarARemover.nombreLugar.equals(unLugar.nombreLugar)) {
-				lugarBuscado = unLugar
-			}
-		}
-		lugaresPosibles.remove(lugarBuscado)
-	}
-	
-	def estaEnLaListaDeLugaresPosibles(Lugar lugarAAgregar) {
-		return (lugaresPosibles.exists[unLugar|unLugar.nombreLugar == lugarAAgregar.nombreLugar])
-	}
-	
-	
-	override equals(Object objeto) {
-		var resultado = false
-		if(objeto != null) {
-			resultado = (this.nombre == (objeto as Pais).nombre)
-		}
-		return resultado
-	}
-	
-	
-	
 }

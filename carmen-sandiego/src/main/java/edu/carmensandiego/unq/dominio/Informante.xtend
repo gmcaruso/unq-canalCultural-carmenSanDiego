@@ -5,19 +5,28 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class Informante extends Persona {
 	
-	String miPista;
-	
-	new(String nuevaPista){
-		miPista = nuevaPista;
+	override darPista(Lugar lugar) {
+	  switch lugar.nombre {
+	    case "Embajada" : this.pistaEmbajada
+	    case "Banco" : this.pistaBanco
+	    case "Biblioteca" : this.pistaBiblioteca
+	    default : this.pistaClub
+	  }
 	}
 	
-	new() {
-		super()
+	def pistaClub() {
+		"Club"
 	}
 	
-	override darPista() {
-
-		miPista
+	def pistaBiblioteca() {
+		"Biblioteca"
 	}
 	
+	def pistaBanco() {
+		"Banco"
+	}
+	
+	def pistaEmbajada() {
+		"Embajada"
+	}
 }

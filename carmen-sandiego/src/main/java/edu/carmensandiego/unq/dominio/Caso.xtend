@@ -1,31 +1,28 @@
 package edu.carmensandiego.unq.dominio
 
-import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
 
+@Accessors
+@Observable
 class Caso {
 
-    Pais estoyPais;
-	List<String> miListaDePistas;
-	Lugar lugarQueVoyAVisitar;
-	Pais pasiAlQueQuieroViajar;
-	Expediente expediente;
-	Villano elResponsable;
-	List<String> paisesVisitados;
+	Expediente expediente
+	Villano villano
+	Detective detective
+	Pais paisDelCrimen
 	
-	new(String nombreCaso, Pais paisDondeOcurrioElRobo, Villano responsable) {
-		this.estoyPais = paisDondeOcurrioElRobo
-		this.miListaDePistas = newArrayList
-		this.elResponsable = responsable
+	new() {
+		this.villano = new Villano("Jorge", "Masculino", newArrayList(), newArrayList())
 		this.expediente = new Expediente
-		this.paisesVisitados = newArrayList
-
+		this.paisDelCrimen = new Pais("Egipto", newArrayList(), newArrayList())
+		this.detective = new Detective()
 	}
 	
-	
 	def viajar(Pais pais) {
-		if(estoyPais.conexionesAereas.contains(pais.nombre)) {
-			this.paisesVisitados.add(estoyPais.nombre)
-			estoyPais = pais;
+		if(detective.miPais.conexionesAereas.contains(pais.nombre)) {
+			detective.paisesVisitados.add(detective.miPais.nombre)
+			detective.miPais = pais;
 		} else {
 			throw new UnsupportedOperationException("El pais al que intenta viajar no tiene conexion con el pais donde se encuentra ahora")
 		}
